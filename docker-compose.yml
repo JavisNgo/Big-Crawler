@@ -1,0 +1,65 @@
+services:
+  myproject:
+    container_name: myproject
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    image: myproject
+    ports:
+      - "8082:6789"
+    networks:
+      - big-crawler-net-work
+    depends_on:
+      - keycloak
+
+  postgres:
+    container_name: postgres
+    image: postgres
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: password
+      PGDATA: /data/postgres
+    volumes:
+      - postgres:/data/postgres
+    networks:
+      - big-crawler-net-work
+    ports:
+      - "5432:5432"
+    restart: unless-stopped
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - "8081:8080"
+    networks:
+      - big-crawler-net-work
+    depends_on:
+      - postgres
+
+  keycloak:
+    container_name: keycloak
+    image: bitnami/keycloak
+    environment:
+      KEYCLOAK_DATABASE_HOST: postgres
+      KEYCLOAK_DATABASE_USER: admin
+      KEYCLOAK_DATABASE_PASSWORD: password
+      KEYCLOAK_DATABASE_NAME: keycloak
+      KEYCLOAK_CREATE_ADMIN_USER: true
+      KEYCLOAK_ADMIN_USER: admin
+      KEYCLOAK_ADMIN_PASSWORD: 12345
+      KEYCLOAK_BIND_ADDRESS: localhost
+    networks:
+      - big-crawler-net-work
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgres
+
+volumes:
+  postgres:
+
+networks:
+  big-crawler-net-work:
+    driver: bridge
+    name: big-crawler-net-work
