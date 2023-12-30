@@ -1,7 +1,7 @@
 # Big Crawler 
 ## A spring boot project that use keycloak to get token and base on its JWT which provide information of multi-tenant to get data through their URL.
 ## Setup keycloak: https://www.youtube.com/watch?v=6xaNsACIq0s&list=PLHXvj3cRjbzs8TaT-RX1qJYYK2MjRro-P&ab_channel=DiveIntoDevelopment
-## Screenshot
+## Screenshots
 ### thegioididong
 ![image](https://github.com/JavisNgo/Big-Crawler/assets/114910475/91798c38-fc84-459c-aa7c-b2a535457a33)
 ![image](https://github.com/JavisNgo/Big-Crawler/assets/114910475/88dc1f12-65c6-4784-939a-85a619e6747c)
