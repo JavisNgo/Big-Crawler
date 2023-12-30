@@ -8,4 +8,6 @@
 ### cellphones
 ![image](https://github.com/JavisNgo/Big-Crawler/assets/114910475/6e475638-e445-4f59-8489-f1d26b7bcbb3)
 ![image](https://github.com/JavisNgo/Big-Crawler/assets/114910475/bd3ba5d6-666e-4089-a8b4-a0bafe660312)
-This project also is improving ...
+
+## This project is improving ...
+## Copyright © 2023 đức.nt
